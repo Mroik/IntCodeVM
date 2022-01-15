@@ -44,7 +44,7 @@ public class VM {
         return instruction;
     }
 
-    private int decode(int instruction, AccessMode[] decoded) throws InvalidInstruction {
+    private int decode(int instruction, AccessMode[] decoded) throws InvalidInstruction, InvalidMode {
         if(instruction < 1) {
             throw new InvalidInstruction();
         }
@@ -54,7 +54,7 @@ public class VM {
         for(int x = 0; x < 3; x++) {
             temp = instruction % 10;
             if(temp > 2)
-                throw new InvalidInstruction();
+                throw new InvalidMode();
             decoded[x] = AccessMode.fromCode(temp);
             instruction /= 10;
         }
@@ -93,10 +93,10 @@ public class VM {
                     break;
                 case 99:
                     this.running = false;
+                    break;
                 default:
                     throw new InvalidInstruction();
             }
-        } catch (InvalidInstruction e) {
         } catch (IllegalAccessException e) {
         } catch (InstantiationException e) {
         } catch (NoSuchMethodException e) {
