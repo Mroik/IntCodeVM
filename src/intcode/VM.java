@@ -1,11 +1,17 @@
 package intcode;
 
 import intcode.exceptions.InvalidInstruction;
+import intcode.exceptions.InvalidMode;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayDeque;
-import java.util.Queue;
 
+/**
+ * The abstraction of the VM.
+ * An instruction cycle has been abstracted to 3 steps:
+ * - Fetch: When the instruction if read from memory and the instructionPointer is then increased.
+ * - Decode: Extracts op code and parameter modes from the instruction.
+ * - Execute: When the instruction is finally executed.
+ */
 public class VM {
     private boolean running;
     private boolean ready;
@@ -19,6 +25,11 @@ public class VM {
         this.memory = new Memory();
     }
 
+    /**
+     * Loads the program into the memory of the VM.
+     *
+     * @param program A string representing a program.
+     */
     public void loadProgram(String program) {
         String[] rawInstructions = program.split(",");
         for(int x = 0; x < rawInstructions.length ; x++)
@@ -50,7 +61,7 @@ public class VM {
         return op;
     }
 
-    private void execute(int op, AccessMode[] modes) throws InvalidInstruction {
+    private void execute(int op, AccessMode[] modes) throws InvalidInstruction, InvalidMode {
         try {
             switch (op) {
                 case 1:
@@ -93,7 +104,12 @@ public class VM {
         }
     }
 
-    public void start() throws InvalidInstruction {
+    /**
+     * Used to run the program, available only after having loaded the program into memory.
+     *
+     * @throws InvalidInstruction
+     */
+    public void start() throws InvalidInstruction, InvalidMode {
         if(!ready)
             System.out.println("Can't start VM, must load a program first!");
         AccessMode[] decoded = new AccessMode[3];
@@ -106,6 +122,9 @@ public class VM {
         }
     }
 
+    /**
+     * Used for debugging
+     */
     public void printMemory() {
         for(int x = 0; x < this.memory.debugSize(); x++)
             System.out.print(this.memory.read(x) + ", ");

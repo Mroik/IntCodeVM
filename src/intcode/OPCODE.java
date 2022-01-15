@@ -4,6 +4,9 @@ import intcode.instructions.*;
 
 import java.lang.reflect.InvocationTargetException;
 
+/**
+ * Sugar syntax that doesn't really contribute to the implementation of the interpreter.
+ */
 public enum OPCODE {
     ADD(Add.class),
     MULT(Mult.class),

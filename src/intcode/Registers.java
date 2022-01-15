@@ -1,5 +1,9 @@
 package intcode;
 
+/**
+ * The abstraction of the registers of the VM.
+ * In a IntCode machine there are only 2 pointers.
+ */
 public class Registers {
     private int instructionPointer;
     private int rbp;
