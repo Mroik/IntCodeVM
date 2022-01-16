@@ -14,7 +14,7 @@ public class SetTrueIfEquals extends Instruction {
     public void execute(AccessMode[] modes) throws InvalidMode {
         int n1 = readParameter(modes[0]);
         int n2 = readParameter(modes[1]);
-        int destinationAddress = getWriteAddress(AccessMode.IMMEDIATE);
+        int destinationAddress = getWriteAddress(modes[2]);
         if(n1 == n2)
             this.memory.write(destinationAddress, 1);
         else
