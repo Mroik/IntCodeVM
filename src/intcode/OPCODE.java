@@ -5,7 +5,7 @@ import intcode.instructions.*;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Sugar syntax that doesn't really contribute to the implementation of the interpreter.
+ * Classe di costanti che fanno riferimento all'istruzione da instanziare.
  */
 public enum OPCODE {
     ADD(Add.class),

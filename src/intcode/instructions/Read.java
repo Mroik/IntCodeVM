@@ -8,8 +8,8 @@ import intcode.exceptions.InvalidMode;
 import java.util.Scanner;
 
 /**
- * Class that implements the instruction for op code 03.
- * It reads a value from STDIN and writes it to an address specified by the 1st parameter.
+ * La classe che rappresenta la lettura da standard input. Questo valore viene salvato nel primo parametro che fa
+ * riferimento all'indirizzo di memoria della cella di destinazione.
  */
 public class Read extends Instruction {
     public Read(Memory memory, Registers registers) {

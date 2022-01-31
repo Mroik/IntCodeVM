@@ -5,8 +5,8 @@ import intcode.Memory;
 import intcode.Registers;
 
 /**
- * Implements the instruction for a conditional jump on parameter != 0.
- * This instruction has op code 05.
+ * La classe che rappresenta la istruzione di condizione se diverso da zero. Se il primo parametro è diverso da zero
+ * allora viene scritto sull'instruction pointer il valore dato dal secondo parametro.
  */
 public class SetIfNotZero extends Instruction {
     public SetIfNotZero(Memory memory, Registers registers) {

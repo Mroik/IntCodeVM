@@ -5,6 +5,10 @@ import intcode.Memory;
 import intcode.Registers;
 import intcode.exceptions.InvalidMode;
 
+/**
+ * L'istruzione che rappresenta la condizione di minore. Se il primo parametro è minore del secondo allora nella cella
+ * di memoria indicata dal terzo parametro viene scritto 1.
+ */
 public class SetTrueIfLessThan extends Instruction {
     public SetTrueIfLessThan(Memory memory, Registers registers) {
         super(memory, registers);

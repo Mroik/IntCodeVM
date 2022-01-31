@@ -5,7 +5,7 @@ import intcode.Memory;
 import intcode.Registers;
 
 /**
- * This class implements the print instruction with op code 04.
+ * La classe che rappresenta l'istruzione di stampa a video. Stampa il valore dato dal primo parametro.
  */
 public class Print extends Instruction {
     public Print(Memory memory, Registers registers) {

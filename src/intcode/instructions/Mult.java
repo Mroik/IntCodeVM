@@ -6,9 +6,8 @@ import intcode.Registers;
 import intcode.exceptions.InvalidMode;
 
 /**
- * Class that implements the instruction for op code 02.
- * The instruction is a simple multiplication between the first 2 parameters,
- * the result is then written to the address specified by the 3rd parameter.
+ * La classe che rappresenta la moltiplicazione, dati 2 parametri questi vengono moltiplicati tra loro. Il risultato
+ * viene salvato all'indirizzo specificato dal terzo parametro.
  */
 public class Mult extends Instruction {
     public Mult(Memory memory, Registers registers) {

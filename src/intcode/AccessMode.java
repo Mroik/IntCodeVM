@@ -1,20 +1,25 @@
 package intcode;
 
-import java.security.InvalidParameterException;
+import intcode.exceptions.InvalidMode;
 
 /**
- * Constants representing the various AccessModes available to the parameters.
- * POSITION - The address where the value should be read from, or should be written to.
- * IMMEDIATE - Not used in write operations, if a parameter is IMMEDIATE itself is the value.
- * RELATIVE - Like POSITION but instead of having directly an address the parameter should be added to the RBP
- * to see what the actual address is.
+ * Classe che rappresenta il tipo di accesso di una istruzione a memoria.
+ * Ci sono 3 tipi di accesso:
+ *  - POSITION: L'indirizzo di memoria è dato dal contenuto della cella di riferimento dell'indirizzo passato
+ *  - IMMEDIATE: L'indirizzo di memoria è il valore stesso passato.
+ *  - RELATIVE: Per avere l'indirizzo bisogna sommare il relative base pointer al valore passato.
  */
 public enum AccessMode {
     POSITION,
     IMMEDIATE,
     RELATIVE;
 
-    public static AccessMode fromCode(int code) {
+    /**
+     * POST-CONDIZIONI:
+     *  - restituisce il tipo di accesso in base al codice di accesso.
+     *  - se il codice di accesso non è valido lancia InvalidMode.
+     */
+    public static AccessMode fromCode(int code) throws InvalidMode {
         if(code == 0)
             return POSITION;
         else if(code == 1)
@@ -22,6 +27,6 @@ public enum AccessMode {
         else if(code == 2)
             return RELATIVE;
         else
-            throw new InvalidParameterException("Mode codes range from 0 to 2!");
+            throw new InvalidMode();
     }
 }

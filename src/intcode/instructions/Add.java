@@ -6,9 +6,8 @@ import intcode.Registers;
 import intcode.exceptions.InvalidMode;
 
 /**
- * The class that implements the instruction for op code 01.
- * This is a simple add where the first 2 parameters are added
- * together and end up in the 3rd parameter.
+ * Rappresenta l'istruzione di addizione, dove dati 2 parametri il risultato viene scritto nell'indirizzo a cui fa
+ * riferimento il terzo parametro.
  */
 public class Add extends Instruction {
     public Add(Memory memory, Registers registers) {

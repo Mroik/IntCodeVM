@@ -2,6 +2,7 @@ package intcode;
 
 import intcode.exceptions.InvalidInstruction;
 import intcode.exceptions.InvalidMode;
+import intcode.exceptions.VMNotReady;
 
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class IntCode {
         vm.loadProgram(program);
         try {
             vm.start();
-        } catch (InvalidInstruction | InvalidMode e) {
+        } catch (InvalidInstruction | InvalidMode | VMNotReady e) {
             e.printStackTrace();
             System.out.println("This program is not properly written!");
         }

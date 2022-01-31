@@ -5,7 +5,8 @@ import intcode.Memory;
 import intcode.Registers;
 
 /**
- * Similar to SetIfNotZero but instead of jumping on parameter != 0 it jumps if it is equal.
+ * La classe che rappresenta l'istruzione di condizione se uguale a zero. Se il primo parametro è uguale a zero allora
+ * scrive nell'instruction pointer il valore dato dal secondo parametro.
  */
 public class SetIfZero extends Instruction {
     public SetIfZero(Memory memory, Registers registers) {
